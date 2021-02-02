@@ -1,20 +1,29 @@
 require("dotenv").config();
-const { PORT = 4000, NODE_ENV = "development" } = process.env;
-
+const express = require("express");
+const logger = require("morgan");
+const app = express();
+const PORT = process.envPORT || 4000
 const mongoose = require("./db/connection");
 // const cors = require("cors");
 // const corsOptions = require("./configs/cors.js");
-const express = require("express");
-const app = express();
-const morgan = require("morgan");
 // const dogRouter = require("./controllers/dog");
 
-/////MIDDLEWARE///////
-
+/// MIDDLEWARE ///
+// NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
+// app.use(morgan("tiny"));
+app.use(logger("dev"));
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+app.get("/", (req, res) => {
+    res.json({
+        status: 200,
+        msg: "You have hit the default route...nothing to see here...keep going!",
+    });
+});
 
 // ROUTE FOR TESTING SERVER IS WORKING
 app.get("/", (req, res) => {
-    res.json({ hello: "Hello World!" });
+    res.json({ hello: "Hello World Backend!" });
 });
 
 // Dog Routes send to dog router

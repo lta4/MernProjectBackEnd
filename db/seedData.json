@@ -1,0 +1,17 @@
+[
+    {
+        "name": "scrumciousDesire",
+        "flavor": "chocolate",
+        "readyToEat": true
+    },
+    {
+        "name": "summerDays",
+        "flavor": "strawberry",
+        "readyToEat": true
+    },
+    {
+        "name": "greatnBland",
+        "flavor": "vanilla",
+        "readyToEat": true
+    }
+]
