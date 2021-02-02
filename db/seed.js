@@ -7,5 +7,5 @@ Icecream.deleteMany({}).then(() => {
     Icecream.insertMany(manyIcecream).then((icecream) => {
         console.log("icecream", icecream);
         db.close();
-    })
-})
+    });
+});
