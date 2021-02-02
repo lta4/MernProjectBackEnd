@@ -1,5 +1,7 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
-const mongoURI = "mongodb://localhost:27017/" + "icecream";
+const { MONGODBURI } = process.env;
+// const mongoURI = "mongodb://localhost:27017/" + "icecream";
 // mongoose.Promise = Promise
 const config = {
     useUnifiedTopology: true,
@@ -7,7 +9,7 @@ const config = {
     useFindAndModify: false,
 };
 
-mongoose.connect(mongoURI, config);
+mongoose.connect(MONGODBURI, config);
 
 const db = mongoose.connection;
 

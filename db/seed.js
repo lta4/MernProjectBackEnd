@@ -1,6 +1,6 @@
 const mongoose = require("./connection");
 const Icecream = require("../models/Icecream");
-const manyIcecream = require("./seeData.json");
+const manyIcecream = require("./seedData.json");
 const db = mongoose.connection;
 
 Icecream.deleteMany({}).then(() => {
