@@ -4,7 +4,7 @@ const logger = require("morgan");
 const app = express();
 const PORT = process.envPORT || 4000
 const mongoose = require("./db/connection");
-const cors = require("cors");
+// const cors = require("cors");
 // const corsOptions = require("./configs/cors.js");
 // const dogRouter = require("./controllers/dog");
 
