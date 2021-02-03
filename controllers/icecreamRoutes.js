@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
 // });
 
 // GET-by year 
-router.get("./:id", (req, res) => {
+router.get("/:id", (req, res) => {
     Cookbook.findId(req.params.id)
         .then((cookbook) => 
             res.json({
