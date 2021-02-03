@@ -33,12 +33,26 @@ router.get("/", (req, res) => {
 });
 
 // GET-by first name
-router.get("/:id", (req, res) => {
-    Icecream.findById(req.params.id)
-        .then((icecream) =>
+// router.get("/:id", (req, res) => {
+//     Icecream.findById(req.params.id)
+//         .then((icecream) =>
+//             res.json({
+//                 status: 200,
+//                 icecream: icecream,
+//             })
+//         ).catch((err) => res.json({
+//             status: 400,
+//             err: err,
+//         }));
+// });
+
+// GET-by year 
+router.get("./:id", (req, res) => {
+    Cookbook.findId(req.params.id)
+        .then((cookbook) => 
             res.json({
                 status: 200,
-                icecream: icecream,
+                cookbook: cookbook,
             })
         ).catch((err) => res.json({
             status: 400,
