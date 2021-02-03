@@ -66,7 +66,7 @@ router.put("/:id", (req, res) => {
         .then((icecream) =>
             res.json({
                 status: 200,
-                data: icecream,
+                icecream: icecream,
             })
         ).catch((err) => res.json({
             status: 400,
