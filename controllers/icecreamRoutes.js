@@ -60,18 +60,23 @@ router.get("/", (req, res) => {
 //         }));
 // });
 
-// PUT -by ???
-router.put("/:id", (req, res) => {
-    Icecream.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then((icecream) =>
-            res.json({
-                status: 200,
-                icecream: icecream,
-            })
-        ).catch((err) => res.json({
-            status: 400,
-            err: err,
-        }));
+// PUT -by name and flavor
+// router.put("/:id", (req, res) => {
+//     Icecream.findByIdAndUpdate(req.params.id, req.body, { new: true })
+//         .then((icecream) =>
+//             res.json({
+//                 status: 200,
+//                 icecream: icecream,
+//             })
+//         ).catch((err) => res.json({
+//             status: 400,
+//             err: err,
+//         }));
+// });
+
+// CREATE
+router.post("/", async (req, res) => {
+    res.json(await Icecream.create(req.body));
 });
 
 
