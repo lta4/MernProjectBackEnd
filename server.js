@@ -26,6 +26,9 @@ app.get("/", (req, res) => {
 // Icecream Routes sent to icecream router
 app.use("/icecream", icecreamRoutes);
 
+// Sop Routes sent to shop router
+app.use("/shop", shopRoutes);
+
 //LISTENER
 app.listen(PORT, () => {
   console.log(`You are listening on port ${PORT}`);
