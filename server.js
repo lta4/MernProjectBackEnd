@@ -2,7 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const logger = require("morgan");
 const app = express();
-const PORT = process.envPORT || 4000
+// const PORT = process.envPORT || 4000
+const { PORT = 4000, NODE_ENV = "development" } = process.env;
 const mongoose = require("./db/connection");
 // const cors = require("cors");
 // const corsOptions = require("./configs/cors.js");
@@ -15,12 +16,6 @@ const shopRoutes = require("./controllers/shopRoutes");
 app.use(logger("dev"));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-// app.get("/", (req, res) => {
-//     res.json({
-//         status: 200,
-//         msg: "You have hit the default route...nothing to see here...keep going!",
-//     });
-// });
 
 // ROUTE FOR TESTING SERVER IS WORKING
 app.get("/", (req, res) => {
