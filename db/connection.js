@@ -2,7 +2,6 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const db = mongoose.connection;
 const { MONGODBURI } = process.env;
-// mongoose.Promise = Promise
 const config = {
     useUnifiedTopology: true,
     useNewUrlParser: true,
