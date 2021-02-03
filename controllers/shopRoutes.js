@@ -32,18 +32,18 @@ router.get("/", (req, res) => {
 });
 
 // GET-by shop name
-// router.get("/:id", (req, res) => {
-//     Shop.findById(req.params.id)
-//         .then((shop) =>
-//             res.json({
-//                 status: 200,
-//                 shop: shop,
-//             })
-//         ).catch((err) => res.json({
-//             status: 400,
-//             err: err,
-//         }));
-// });
+router.get("/:id", (req, res) => {
+    Shop.findById(req.params.id)
+        .then((shop) =>
+            res.json({
+                status: 200,
+                shop: shop,
+            })
+        ).catch((err) => res.json({
+            status: 400,
+            err: err,
+        }));
+});
 
 // GET-by yearBuilt
 // router.get("/:id", (req, res) => {
@@ -60,18 +60,18 @@ router.get("/", (req, res) => {
 // });
 
 // PUT -by name and flavor
-router.put("/:id", (req, res) => {
-    Shop.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then((shop) =>
-            res.json({
-                status: 200,
-                shop: shop,
-            })
-        ).catch((err) => res.json({
-            status: 400,
-            err: err,
-        }));
-});
+// router.put("/:id", (req, res) => {
+//     Shop.findByIdAndUpdate(req.params.id, req.body, { new: true })
+//         .then((shop) =>
+//             res.json({
+//                 status: 200,
+//                 shop: shop,
+//             })
+//         ).catch((err) => res.json({
+//             status: 400,
+//             err: err,
+//         }));
+// });
 
 // CREATE
 // router.post("/", async (req, res) => {
