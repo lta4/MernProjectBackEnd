@@ -1,3 +1,4 @@
+const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
 const icecream = require("../db/connection");
@@ -5,7 +6,7 @@ const mongoose = require("../db/connection");
 const Icecream = require("../models/Icecream");
 const db = mongoose.connection
 
-// SEED ROUTE
+// SEED
 router.get("/seed", async (req, res) => {
     await Icecream.deleteMany({})
     const seedData = await Icecream.insertMany(icecream)
@@ -31,6 +32,19 @@ router.get("/", (req, res) => {
     }));
 });
 
+// GET-by first name
+router.get("/:id", (req, res) => {
+    Icecream.findById(req.params.id)
+        .then((icecream) =>
+            res.json({
+                status: 200,
+                icecream: icecream,
+            })
+        ).catch((err) => res.json({
+            status: 400,
+            err: err,
+        }));
+});
 
 
 
