@@ -8,7 +8,7 @@ const db = mongoose.connection
 // SEED ROUTE
 router.get("/seed", async (req, res) => {
     await Icecream.deleteMany({})
-    const seedData = await Icecream.insertMany(icecreams)
+    const seedData = await Icecream.insertMany(icecream)
     res.json({
         status: 200,
         data: seedData

@@ -5,14 +5,13 @@ const app = express();
 // const PORT = process.envPORT || 4000
 const { PORT = 4000, NODE_ENV = "development" } = process.env;
 const mongoose = require("./db/connection");
-// const cors = require("cors");
-// const corsOptions = require("./configs/cors.js");
+const cors = require("cors");
+const corsOptions = require("./configs/cors.js");
 const icecreamRoutes = require("./controllers/icecreamRoutes");
 const shopRoutes = require("./controllers/shopRoutes");
 
 /// MIDDLEWARE ///
-// NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
-// app.use(morgan("tiny"));
+NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
 app.use(logger("dev"));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
@@ -25,8 +24,8 @@ app.get("/", (req, res) => {
     });
 });
 
-// Dog Routes send to dog router
-// app.use("/dog", dogRouter);
+// Icecream Routes send to icecream router
+app.use("/icecream", icecreamRoutes);
 
 //LISTENER
 app.listen(PORT, () => {
