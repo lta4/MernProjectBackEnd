@@ -46,13 +46,27 @@ router.get("/", (req, res) => {
 //         }));
 // });
 
-// GET-by year 
-router.get("/:id", (req, res) => {
-    Icecream.findById(req.params.id)
-        .then((icecream) => 
+// GET-by flavor
+// router.get("/:id", (req, res) => {
+//     Icecream.findById(req.params.id)
+//         .then((icecream) => 
+//             res.json({
+//                 status: 200,
+//                 icecream: icecream,
+//             })
+//         ).catch((err) => res.json({
+//             status: 400,
+//             err: err,
+//         }));
+// });
+
+// PUT -by ???
+router.put("/:id", (req, res) => {
+    Icecream.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((icecream) =>
             res.json({
                 status: 200,
-                icecream: icecream,
+                data: icecream,
             })
         ).catch((err) => res.json({
             status: 400,
