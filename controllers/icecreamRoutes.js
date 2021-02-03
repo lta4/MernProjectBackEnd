@@ -75,9 +75,24 @@ router.get("/", (req, res) => {
 // });
 
 // CREATE
-router.post("/", async (req, res) => {
-    res.json(await Icecream.create(req.body));
+// router.post("/", async (req, res) => {
+//     res.json(await Icecream.create(req.body));
+// });
+
+// DELETE- by id
+router.delete("/:id", (req, res) => {
+    Icecream.findByIdAndDelete(req.params.id)
+        .then((icecream) =>
+            res.json({
+                status: 200,
+                msg: "item deleted",
+            })
+        ).catch((err) => res.json({
+            status: 400,
+            err: err,
+        }));
 });
+
 
 
 
