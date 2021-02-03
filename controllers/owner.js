@@ -15,7 +15,7 @@ router.getr("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     const owner = await Owner.create({
-        name: req.body.ownderName
+        name: req.body.ownerName
     })
     res.json({
         status: 200,

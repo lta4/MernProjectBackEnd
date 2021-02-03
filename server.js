@@ -12,8 +12,9 @@ const shopRoutes = require("./controllers/shopRoutes");
 
 /// MIDDLEWARE ///
 NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
-app.use(logger("dev"));
-app.use(express.urlencoded({extended:false}));
+app.use(logger("tiny"));
+// app.use(logger("dev"));
+// app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 // ROUTE FOR TESTING SERVER IS WORKING
@@ -29,5 +30,5 @@ app.use("/icecream", icecreamRoutes);
 
 //LISTENER
 app.listen(PORT, () => {
-  console.log(`Your are listening on port ${PORT}`);
+  console.log(`You are listening on port ${PORT}`);
 });
