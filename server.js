@@ -6,7 +6,8 @@ const PORT = process.envPORT || 4000
 const mongoose = require("./db/connection");
 // const cors = require("cors");
 // const corsOptions = require("./configs/cors.js");
-// const dogRouter = require("./controllers/dog");
+const icecreamRoutes = require("./controllers/icecreamRoutes");
+const shopRoutes = require("./controllers/shopRoutes");
 
 /// MIDDLEWARE ///
 // NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
@@ -23,7 +24,10 @@ app.use(express.json());
 
 // ROUTE FOR TESTING SERVER IS WORKING
 app.get("/", (req, res) => {
-    res.json({ hello: "Hello World Backend!" });
+    res.json({
+        status: 200, 
+        msg: "Hello World Backend!", 
+    });
 });
 
 // Dog Routes send to dog router
