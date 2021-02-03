@@ -48,11 +48,11 @@ router.get("/", (req, res) => {
 
 // GET-by year 
 router.get("/:id", (req, res) => {
-    Cookbook.findId(req.params.id)
-        .then((cookbook) => 
+    Icecream.findId(req.params.id)
+        .then((icecream) => 
             res.json({
                 status: 200,
-                cookbook: cookbook,
+                icecream: icecream,
             })
         ).catch((err) => res.json({
             status: 400,
