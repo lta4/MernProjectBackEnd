@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const logger = require("morgan");
 const app = express();
-// const PORT = process.envPORT || 4000
 const { PORT = 4000, NODE_ENV = "development" } = process.env;
 const mongoose = require("./db/connection");
 const cors = require("cors");
@@ -13,7 +12,6 @@ const shopRoutes = require("./controllers/shopRoutes");
 /// MIDDLEWARE ///
 NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
 app.use(logger("tiny"));
-// app.use(logger("dev"));
 // app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
@@ -25,7 +23,7 @@ app.get("/", (req, res) => {
     });
 });
 
-// Icecream Routes send to icecream router
+// Icecream Routes sent to icecream router
 app.use("/icecream", icecreamRoutes);
 
 //LISTENER
