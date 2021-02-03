@@ -48,7 +48,7 @@ router.get("/", (req, res) => {
 
 // GET-by year 
 router.get("/:id", (req, res) => {
-    Icecream.findId(req.params.id)
+    Icecream.findById(req.params.id)
         .then((icecream) => 
             res.json({
                 status: 200,
