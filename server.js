@@ -14,12 +14,12 @@ const mongoose = require("./db/connection");
 app.use(logger("dev"));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.get("/", (req, res) => {
-    res.json({
-        status: 200,
-        msg: "You have hit the default route...nothing to see here...keep going!",
-    });
-});
+// app.get("/", (req, res) => {
+//     res.json({
+//         status: 200,
+//         msg: "You have hit the default route...nothing to see here...keep going!",
+//     });
+// });
 
 // ROUTE FOR TESTING SERVER IS WORKING
 app.get("/", (req, res) => {
